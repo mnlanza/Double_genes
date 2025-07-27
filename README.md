@@ -89,5 +89,6 @@ source("scripts/EVO_learned_resist.R")
 ## Notes
 
 - This analysis of double genes indicates that evo2 7b memorizes the gene 
-sequence within ~25bp and can then accurately predict every bp of the replicated
-gene going forward. 
+sequence within ~25bp and can then accurately predict every bp of the repeated
+gene going forward
+- The highlighted nucleotides are the frist 3 nucleotides of the repeated gene
