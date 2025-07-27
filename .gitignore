@@ -1,0 +1,33 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Temporary output and job files
+output/
+jobs/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Keep these files (commented out as reference)
+# *.fasta  # Keep FASTA files as they might be reference data
+# figures/ # Keep figures as they are results
+# *.tab    # Keep tab files if they contain reference data 
