@@ -16,10 +16,10 @@ double_gyrae/
 ## Data Generation Pipeline
 
 ### 1. Sequence Preparation
-- Initial sequences were prepared in FASTA format:
-  - `double_ref.fasta`: Reference double gyrase sequence
+- Sequences are provided in `input/double_genes.fasta` with the following entries:
+  - `double_83_ref`: Reference double gyrase sequence
   - `double_83_TTT`: Mutant sequence with TTT mutation
-  - `double_random`: Random sequence of same length
+  - `double_random`: Random sequence of the same length
 
 ### 2. EVO Model Analysis
 From the project root directory, run:
@@ -28,10 +28,15 @@ From the project root directory, run:
 ./run_evo.sh double-genes input/double_genes.fasta input
 ```
 This will:
-- Create necessary directories (output, jobs, figures)
+- Create necessary directories under the specified output directory (e.g., `input/output`, `input/jobs`, `input/figures`)
 - Submit the job to the EVO model
 - Download results when complete
-- Generate logits files in the format: `input/input_[sequence_name]_logits.npy`
+- Save logits as `input_[sequence_name]_logits.npy` inside `<OUTPUT_DIR>/jobs/<JOB_ID>-v1/output/` (with the example above: `input/jobs/double-genes-v1/output/`)
+
+For the R analysis scripts, ensure the `.npy` files exist at:
+`input/input_[sequence_name]_logits.npy`
+
+If you used a different `<OUTPUT_DIR>`, copy or symlink the files from `<OUTPUT_DIR>/jobs/<JOB_ID>-v1/output/` into `input/` with the names `input_[sequence_name]_logits.npy`.
 
 ### 3. Data Analysis and Visualization
 The analysis is performed using R scripts in the following order:
@@ -91,4 +96,4 @@ source("scripts/EVO_learned_resist.R")
 - This analysis of double genes indicates that evo2 7b memorizes the gene 
 sequence within ~25bp and can then accurately predict every bp of the repeated
 gene going forward
-- The highlighted nucleotides are the frist 3 nucleotides of the repeated gene
+- The highlighted nucleotides are the first 3 nucleotides of the repeated gene
